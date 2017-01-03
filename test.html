@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="adminPanel">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Ej de AngularJS</title>
+</head>
+
+<body>
+
+    <div class="col-md-6" ng-controller="namesController">
+        <table class="table">
+            <thead>
+                <tr ng-repeat="data in names">
+                   <td>{{data.nombre}}</td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+var app = angular.module('adminPanel', []);
+app.controller('namesController', function($scope,$http) {
+    $http.get("http://samp.newclan.com.uy:3000/api/names")
+    .then(function (response) {$scope.names = response.data;});
+});
+</script>
