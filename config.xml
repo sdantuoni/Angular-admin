@@ -28,8 +28,10 @@
     <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
 </feature>
 
-
+<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 <allow-navigation href="http://*/*" />
 <allow-intent href="https://*/*" />
 
     <access origin="*" subdomains="true" />
+
+</widget>
